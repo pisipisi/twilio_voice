@@ -537,7 +537,7 @@ public class TwilioVoicePlugin implements FlutterPlugin, MethodChannel.MethodCal
     }
 
     private void sendPhoneCallEvents(String description) {
-        Log.d(TAG, "description");
+        Log.d(TAG, description);
         if (eventSink == null) {
             return;
         }
