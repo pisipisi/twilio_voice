@@ -152,7 +152,9 @@ public class AnswerJavaActivity extends AppCompatActivity {
 
             String fromId = activeCallInvite.getFrom().replace("client:", "");
             SharedPreferences preferences = getApplicationContext().getSharedPreferences(TwilioPreferences, Context.MODE_PRIVATE);
-            String caller = preferences.getString(fromId, preferences.getString("defaultCaller", fromId));
+            Map<String,String> customParameters = activeCallInvite.getCustomParameters();
+            String displayName = customParameters.get("displayName");
+            String caller = preferences.getString(fromId, preferences.getString("defaultCaller",displayName != null ? displayName : fromId));
             tvUserName.setText(caller);
 
             btnAnswer.setOnClickListener(new View.OnClickListener() {
