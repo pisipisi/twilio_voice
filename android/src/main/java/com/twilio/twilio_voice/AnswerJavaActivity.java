@@ -36,7 +36,7 @@ import java.util.Map;
 public class AnswerJavaActivity extends AppCompatActivity {
 
     private static String TAG = "AnswerActivity";
-    public static final String TwilioPreferences = "mx.TwilioPreferences";
+    public static final String TwilioPreferences = "com.twilio.twilio_voicePreferences";
 
     private NotificationManager notificationManager;
     private boolean isReceiverRegistered = false;
@@ -201,10 +201,8 @@ public class AnswerJavaActivity extends AppCompatActivity {
             finish();
         } else {
             Log.d(TAG, "Answering call");
-
             activeCallInvite.accept(this, callListener);
             notificationManager.cancel(activeCallNotificationId);
-
         }
     }
 
